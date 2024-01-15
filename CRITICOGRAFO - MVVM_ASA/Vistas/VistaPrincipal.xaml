@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRITICOGRAFO_MVVM_ASA.Vistas.VistaPrincipal"
+             xmlns:local="clr-namespace:CRITICOGRAFO_MVVM_ASA.VistaModelo">
+
+    <ContentPage.BindingContext>
+        <local:VMpatron />
+    </ContentPage.BindingContext>
+
+    <StackLayout BackgroundColor="Cornsilk">
+        <Frame BackgroundColor="Cornsilk" Padding="24" CornerRadius="0">
+            <Label Text="CRITICOGRAFO" HorizontalTextAlignment="Center" FontSize="36" TextColor="Black"/>
+        </Frame>
+        <Label Text="Nombre:" TextColor="Black"/>
+        <Entry Placeholder="Alejandro" Text="{Binding Nombre}" TextColor="Black" />
+
+        <Label Text="Genero:" TextColor="Black"/>
+        <StackLayout Orientation="Horizontal">
+            <RadioButton Content="Hombre" HorizontalOptions="CenterAndExpand" IsChecked="{Binding Generohombre}" TextColor="Black"/>
+            <RadioButton Content="Mujer" HorizontalOptions="CenterAndExpand" IsChecked="{Binding Generomujer}" TextColor="Black"/>
+        </StackLayout>
+
+        <Frame BackgroundColor="Cornsilk">
+            <Grid>
+                <Label Text="Alto" Grid.Row="0" TextColor="Black"/>
+                <CheckBox IsChecked="{Binding Alto}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" />
+
+                <Label Text="Feo" Grid.Row="1" TextColor="Black"/>
+                <CheckBox IsChecked="{Binding Feo}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0" />
+
+                <Label Text="Hermoso" Grid.Row="2" TextColor="Black"/>
+                <CheckBox IsChecked="{Binding Hermoso}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="0" />
+
+                <Label Text="Extravagante" Grid.Row="0" Grid.Column="1" TextColor="Black"/>
+                <CheckBox IsChecked="{Binding Extravagante}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="2" />
+
+                <Label Text="Listo" Grid.Row="1" Grid.Column="1" TextColor="Black"/>
+                <CheckBox IsChecked="{Binding Listo}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="2" />
+
+                <Label Text="Guapo" Grid.Row="2" Grid.Column="1" TextColor="Black"/>
+                <CheckBox IsChecked="{Binding Guapo}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="2" />
+            </Grid>
+        </Frame>
+
+        <Button Text="CRITICAR" CornerRadius="10" BackgroundColor="Gray" Command="{Binding CalcularResultadosCommand}" />
+
+        <Frame BorderColor="Black" BackgroundColor="Transparent" CornerRadius="10">
+            <Entry IsReadOnly="true" Text="{Binding ResultadosFinal}" TextColor="Black"/>
+        </Frame>
+    </StackLayout>
+</ContentPage>
